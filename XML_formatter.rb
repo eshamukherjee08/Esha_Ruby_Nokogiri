@@ -5,12 +5,13 @@ module Formatting
   
   # Method to return array of text elements of xml file passed.
   def scanner(filename)
-     building(Nokogiri::XML(File.open(filename)).text.scan(/[a-zA-Z']+(?=\n)/))
+     f_name = filename.split(/\./)       # fetching xml file name to create new file.
+     building(Nokogiri::XML(File.open(filename)).text.scan(/[a-zA-Z']+(?=\n)/),f_name[0])
   end
    
   # Method to build xml in new format with text extracted from input file format
-  def building(array_XMLtext)
-    objects, counter, new_file = [Object.new], 0, File.new("new_format.xml","w")
+  def building(array_XMLtext,f_name)
+    objects, counter, new_file = [Object.new], 0, File.new(f_name+"_new_format.xml","w")
      builder = Nokogiri::XML::Builder.new do |xml|
        # creation first node people.
        xml.people {
@@ -37,6 +38,6 @@ class Formatter
 end
 
 a = Formatter.new
-#a.scanner("xml_test.xml")
-#a.scanner("xml_test2.xml")
+a.scanner("xml_test.xml")
+a.scanner("xml_test2.xml")
 a.scanner("xml_test3.xml")

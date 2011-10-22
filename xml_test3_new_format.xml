@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<people>
+  <person>
+    <name>
+      <first>Abc</first>
+      <last>xyz</last>
+    </name>
+    <name>
+      <first>Someya</first>
+      <last>Sharma</last>
+    </name>
+    <name>
+      <first>Harshit</first>
+      <last>Pandey</last>
+    </name>
+  </person>
+</people>
